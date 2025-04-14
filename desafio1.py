@@ -36,4 +36,4 @@ elif 4 <= nota_aleatoria < 6:
     print(f"Aprobado{nota}")
 else:
     # nota_aleatoria <= 3
-    print(f"Desaprobado{nota}")W
+    print(f"Desaprobado{nota}")
