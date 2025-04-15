@@ -13,10 +13,10 @@ from random import randint
 altura = int(input("Ingrese la altura del jugador en cm: "))
 if altura < 160:
     print("Base")
-elif 160 <= altura < 180:   
+elif 160 <= altura < 180:
     print("Escolta")
 elif 180 <= altura < 200:
-    print("Alero") 
+    print("Alero")
 else:
     # altura >= 200
     print("Ala-Pívot o Pívot")
