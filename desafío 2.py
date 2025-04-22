@@ -7,7 +7,7 @@ match tipo:
         if consumo < 30:
             bono = .1
         elif consumo > 80:
-            bono = -.15
+            bono = -.15  # esto está mal
     case "Comercial":
         if consumo > 150:
             bono = .8
