@@ -26,6 +26,9 @@ match tipo:
         print(f'tipo de cliente {tipo} inválido')
 
 sub = 7000 + (200 * consumo)
+if sub < 35000:
+    sub += .05
+
 subtotal = f"Subtotal: ${sub}"
 recargos = bono if bono < 0 else ''
 subtotal_recargos = f"Subtotal con recargos y bonificaciones: ${sub + bono * 100}"
