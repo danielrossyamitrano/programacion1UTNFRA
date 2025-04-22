@@ -26,7 +26,7 @@ match tipo:
         print(f'tipo de cliente {tipo} inválido')
 
 sub = 7000 + (200 * consumo)
-if sub < 35000:
+if sub < 35000 and tipo == 'Residencial':
     sub += .05
 
 subtotal = f"Subtotal: ${sub}"
