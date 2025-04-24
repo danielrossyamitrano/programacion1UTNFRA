@@ -31,7 +31,7 @@ if sub < 35000 and tipo == 'Residencial':
 
 subtotal = f"\nSubtotal: ${sub}"
 recargos = bono if bono < 0 else ''
-subtotal_recargos = f"Subtotal con recargos y bonificaciones: ${sub + bono * 100}"
+subtotal_recargos = f"Subtotal con recargos y bonificaciones: ${(round(sub + bono * 100) + (1 + iva), 2)}"
 rec = recargos if recargos != '' else ""
 if rec != "":
     print(subtotal, rec, subtotal_recargos, f'IVA: {iva * 100}%', sep='\n')
