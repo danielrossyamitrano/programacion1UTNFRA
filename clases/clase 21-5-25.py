@@ -193,7 +193,7 @@ def operacion_8(cereales, depositos, existencias, valor_por_tipo) -> None:
 
 def ingresar_cereales() -> None:
     cereales = ['maíz', 'trigo', 'cebada', 'centeno']
-    depositos = [f"Deposito {letra}" for letra in
+    depositos = [f"Depósito {letra}" for letra in
                  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"]]
     existencias = [
         [0] * len(depositos),  # maiz
