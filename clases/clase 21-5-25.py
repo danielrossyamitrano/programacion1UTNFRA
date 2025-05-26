@@ -194,34 +194,34 @@ def operacion_8(cereales, depositos, existencias, valor_por_tipo) -> None:
 def ingresar_cereales() -> None:
     cereales = ['maíz', 'trigo', 'cebada', 'centeno']
     depositos = ["Depósito A", "Deposito B", "Depósito C", "Deposito D"]
-    # existencias = [
-    #     [0] * len(depositos),  # maiz
-    #     [0] * len(depositos),  # trigo
-    #     [0] * len(depositos),  # cebada
-    #     [0] * len(depositos)  # centeno
-    # ]
-    existencias = [  # hardcoded for debugging
-        [5000, 4000, 2000, 1000],
-        [100000, 2000000, 1500, 1300],
-        [1000, 60000, 3000, 700],
-        [100, 400, 2000, 4000]
+    existencias = [
+        [0] * len(depositos),  # maiz
+        [0] * len(depositos),  # trigo
+        [0] * len(depositos),  # cebada
+        [0] * len(depositos)  # centeno
     ]
+    # existencias = [  # hardcoded for debugging
+    #     [5000, 4000, 2000, 1000],
+    #     [100000, 2000000, 1500, 1300],
+    #     [1000, 60000, 3000, 700],
+    #     [100, 400, 2000, 4000]
+    # ]
     valor_por_tipo = [967.19, 902.71, 967.19, 7350.67]  # valor del maíz, trigo, cebada y centeno en pesos por kilo.
 
-    # while True:
-    #     print('Ingrese el cereal cuya cantidad desea ingresar')
-    #     cereal = elegir(cereales)
-    #
-    #     print('Ingrese el depósito en el cual se haya ese cereal')
-    #     deposito = elegir(depositos)
-    #
-    #     print(f'Ingrese la existencia de {cereales[cereal]} almacenado en el depósito "{depositos[deposito]}"')
-    #     cantidad = ingresar_cantidad()
-    #
-    #     existencias[deposito][cereal] = cantidad
-    #     print("Existencia ingresada con éxito")
-    #     if not input('¿Desea continuar?').upper().startswith("S"):
-    #         break
+    while True:
+        print('Ingrese el cereal cuya cantidad desea ingresar')
+        cereal = elegir(cereales)
+
+        print('Ingrese el depósito en el cual se haya ese cereal')
+        deposito = elegir(depositos)
+
+        print(f'Ingrese la existencia de {cereales[cereal]} almacenado en el depósito "{depositos[deposito]}"')
+        cantidad = ingresar_cantidad()
+
+        existencias[deposito][cereal] = cantidad
+        print("Existencia ingresada con éxito")
+        if not input('¿Desea continuar?').upper().startswith("S"):
+            break
 
     while True:
         print("A continuación, elija la operación que desea realizar")
