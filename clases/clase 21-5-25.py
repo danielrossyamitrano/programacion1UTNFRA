@@ -67,16 +67,19 @@ def operacion_3(depositos, cereales, existencias) -> None:
             print(f"{cereales[indice]} almancenó la menor cantidad de kilogramos en {deposito}")
 
 
-def operacion_4(cereales, existencias) -> None:
-    # 4. Máxima cantidad de kilos almacenados de cada cereal.
-    print('Mostrando la máxima cantidad de kilos almacenados de cada cereal.')
-    for i in range(len(cereales)):
-        cereal = cereales[i]
+def operacion_4(depositos, cereales, existencias):
+    # 4. Nombre del cereal que almaceno más kilos en cada depósito.
+    for i in range(len(depositos)):
+        deposito = depositos[i]
+        maximo = float("-inf")
+        cereal = ''
         cantidad = 0
-        for j in range(len(existencias)):
-            cantidad += existencias[j][i]
-        print(f'{cereal}: {cantidad} kg')
-
+        for j in range(len(cereales)):
+            cantidad = existencias[i][j]
+            if cantidad > maximo:
+                maximo = cantidad
+                cereal = cereales[j]
+        print(f"{cereal} acumuló la mayor cantidad de kilos en {deposito} con {cantidad} kg.")
 
 def operacion_5(depositos, existencias, valor_por_tipo) -> None:
     # 5. Depósito con mayor recaudación, teniendo en cuenta que disponemos de un vector con los valores
@@ -195,34 +198,50 @@ def ingresar_cereales() -> None:
     cereales = ['maíz', 'trigo', 'cebada', 'centeno']
     depositos = [f"Depósito {letra}" for letra in
                  ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"]]
-    existencias = [
-        [0] * len(depositos),  # maiz
-        [0] * len(depositos),  # trigo
-        [0] * len(depositos),  # cebada
-        [0] * len(depositos)  # centeno
-    ]
-    # existencias = [  # hardcoded for debugging
-    #     [5000, 4000, 2000, 1000],
-    #     [100000, 2000000, 1500, 1300],
-    #     [1000, 60000, 3000, 700],
-    #     [100, 400, 2000, 4000]
+    # existencias = [
+    #     [0] * len(depositos),  # maiz
+    #     [0] * len(depositos),  # trigo
+    #     [0] * len(depositos),  # cebada
+    #     [0] * len(depositos)  # centeno
     # ]
+    existencias = [  # hardcoded for debugging
+        [5000, 4000, 2000, 1000],
+        [100, 2000000, 1500, 1300],
+        [1000, 60000, 3000, 700],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [5000, 4000, 2000, 1000],
+        [100, 2000000, 1500, 1300],
+        [1000, 60000, 3000, 700],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+        [200, 400, 2000, 4000],
+    ]
     valor_por_tipo = [967.19, 902.71, 967.19, 7350.67]  # valor del maíz, trigo, cebada y centeno en pesos por kilo.
 
-    while True:
-        print('Ingrese el cereal cuya cantidad desea ingresar')
-        cereal = elegir(cereales)
-
-        print('Ingrese el depósito en el cual se haya ese cereal')
-        deposito = elegir(depositos)
-
-        print(f'Ingrese la existencia de {cereales[cereal]} almacenado en el depósito "{depositos[deposito]}"')
-        cantidad = ingresar_cantidad()
-
-        existencias[deposito][cereal] = cantidad
-        print("Existencia ingresada con éxito")
-        if not input('¿Desea continuar?').upper().startswith("S"):
-            break
+    # while True:
+    #     print('Ingrese el cereal cuya cantidad desea ingresar')
+    #     cereal = elegir(cereales)
+    #
+    #     print('Ingrese el depósito en el cual se haya ese cereal')
+    #     deposito = elegir(depositos)
+    #
+    #     print(f'Ingrese la existencia de {cereales[cereal]} almacenado en el depósito "{depositos[deposito]}"')
+    #     cantidad = ingresar_cantidad()
+    #
+    #     existencias[deposito][cereal] = cantidad
+    #     print("Existencia ingresada con éxito")
+    #     if not input('¿Desea continuar?').upper().startswith("S"):
+    #         break
 
     while True:
         print("A continuación, elija la operación que desea realizar")
@@ -250,7 +269,7 @@ def ingresar_cereales() -> None:
                 case 1:
                     operacion_3(depositos, cereales, existencias)
                 case 2:
-                    operacion_4(cereales, existencias)
+                    operacion_4(depositos, cereales, existencias)
                 case 3:
                     operacion_5(depositos, existencias, valor_por_tipo)
                 case 4:
