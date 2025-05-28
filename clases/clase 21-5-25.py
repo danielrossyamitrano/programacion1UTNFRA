@@ -86,6 +86,7 @@ def operacion_5(depositos, existencias, valor_por_tipo) -> None:
     # por kilo de cada tipo de cereal.
 
     recaudaciones = []
+    copia_depositos = depositos.copy()
     for i in range(len(depositos)):
         recaudacion = 0
         for j in range(len(existencias)):
@@ -100,20 +101,20 @@ def operacion_5(depositos, existencias, valor_por_tipo) -> None:
         while j < n - 1 - i:
             if recaudaciones[j] > recaudaciones[j + 1]:
                 aux = recaudaciones[j]
-                aux2 = depositos[j]
+                aux2 = copia_depositos[j]
 
                 recaudaciones[j] = recaudaciones[j + 1]
-                depositos[j] = depositos[j + 1]
+                copia_depositos[j] = copia_depositos[j + 1]
 
                 recaudaciones[j + 1] = aux
-                depositos[j + 1] = aux2
+                copia_depositos[j + 1] = aux2
 
                 ordenado = True
             j += 1
         if not ordenado:
             break
 
-    print(f"El depósito con mayor recaudación es el {depositos[-1]} con ${recaudaciones[-1]}")
+    print(f"El depósito con mayor recaudación es el {copia_depositos[-1]} con ${recaudaciones[-1]}")
 
 
 def operacion_6(depositos, cereales, existencias) -> None:
